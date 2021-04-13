@@ -1,0 +1,123 @@
+.my-cart {
+    background-color: #0000008c;
+    position: absolute;
+    z-index: 777;
+    width: 100vw;
+    height: 100vh;
+    &__container {
+        position: inherit;
+        width: 45%;
+        height: 60%;
+        top: 10%;
+        background-color: white;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+        &_header {
+            flex: 0 0 8%;
+            padding: 1em;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            img {
+                cursor: pointer;
+            }
+        }
+        &_content {
+            flex: 0 0 70%;
+            overflow: scroll;
+            background-color: #eee;
+            .empty_cart {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .item {
+                background-color: white;
+                margin: 10px 0;
+                display: flex;
+                padding: 1em;
+                .logo {
+                    height: 100px;
+                }
+                &__info {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    h1 {
+                        font-size: 18px;
+                    }
+                    .count {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        &>* {
+                            font-size: 18px;
+                        }
+                        &_button {
+                            flex: 0 0 60%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            button {
+                                border-radius: 5px;
+                                flex: 0 0 13%;
+                                cursor: pointer;
+                            }
+                            span {
+                                margin: 1em 0;
+                                padding: 0 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &_buy {
+            // flex: 0 0 10%;
+            &>* {
+                margin: 5px;
+            }
+            .promo {
+                padding: 0 1em;
+            }
+            button {
+                width: 100%;
+                padding: 4%;
+            }
+            .checkout {
+                display: flex;
+                justify-content: space-between;
+                padding: 1em;
+                cursor: pointer;
+                .price {
+                    display: flex;
+                    flex: 0 0 25%;
+                    justify-content: space-around;
+                    align-items: center;
+                    img {
+                        height: 14px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 991px) {
+        background-color: #00000000;
+        top: 10%;
+        &__container {
+            width: 100%;
+            right: 0;
+            height: 90%;
+            top: 0;
+            &_header {
+                display: none;
+            }
+        }
+    }
+}
