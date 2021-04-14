@@ -1,11 +1,13 @@
 import React from "react";
 import { productActions } from "../../store/reducers/productReducer";
+import { ROUTE_PATH } from "../../Utils/routesPaths";
 
 export default function ProductList({
   products,
   categories,
   seacrhStr,
   dispatch,
+  history
 }) {
   const list = () =>
     products.map((product) => (
@@ -20,7 +22,7 @@ export default function ProductList({
           <img
             className="product-list__item--image"
             src={product.imageURL}
-            alt={product.description}
+            alt={`image of ${product.name}`}
           />
           <div className="product-list__item--info">{product.description}</div>
           <button
@@ -49,7 +51,16 @@ export default function ProductList({
     ));
   return (
     <>
-      <select name="" id="" className="m-select-nav">
+      <select
+        className="m-select-nav"
+        value={seacrhStr}
+        onChange={(e) =>
+          history.push({
+            pathname: ROUTE_PATH.PRODUCTS,
+            search: `?q=${e.target.value}`,
+          })
+        }
+      >
         <option value="">All Products</option>
         {categories.map((i) => (
           <option value={i.id} key={i.id}>

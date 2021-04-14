@@ -14,9 +14,9 @@ $black-color: black;
             border: 0;
             border-bottom: 1px solid #ccc;
             font-size: 13px;
-            &:focus {
-                outline: none;
-            }
+            // &:focus {
+            //     outline: none;
+            // }
             &.active,
             &:hover {
                 outline: none;

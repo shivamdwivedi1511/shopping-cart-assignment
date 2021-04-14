@@ -66,6 +66,9 @@ nav {
         display: flex;
         justify-content: center;
         align-items: center;
+        img {
+            cursor: pointer;
+        }
         span {
             align-self: center;
         }

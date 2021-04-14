@@ -5,6 +5,9 @@
     box-sizing: border-box;
     font-size: 16px;
     font-family: "Dosis";
+    *:focus {
+        outline: 2px solid lime;
+    }
 }
 
 hr {
@@ -30,4 +33,8 @@ hr {
 a,
 button {
     cursor: pointer;
+}
+
+.showCart {
+    overflow: hidden;
 }

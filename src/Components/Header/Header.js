@@ -77,6 +77,9 @@ export default function Header() {
           <div className="cart_section">
             <img
               src={cart}
+              aria-label="cart"
+              role="button"
+              tabIndex="0"
               alt="cart"
               id="cart_logo"
               onClick={() => dispatch(cartActions.toggleCart(!cartShow))}

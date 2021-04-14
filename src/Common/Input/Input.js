@@ -10,6 +10,7 @@ export default function Input({ type, placeholder, required, name }) {
         id={name}
         required={required}
         placeholder={placeholder}
+        aria-label={placeholder}
       />
       <label htmlFor={name}> {placeholder} </label>
     </div>

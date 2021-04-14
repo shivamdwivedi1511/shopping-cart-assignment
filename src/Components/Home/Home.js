@@ -5,6 +5,7 @@ import useApi from "../../Hooks/useApi";
 import { filter, sortBy } from "lodash";
 import { ROUTE_PATH } from "../../Utils/routesPaths";
 import "./Home.scss";
+import Button from "../../Common/Buuton/Button";
 export default function Home() {
   const bannerData = useApi("/banners");
   const categories = filter(
@@ -25,26 +26,24 @@ export default function Home() {
           <div className="category_link">
             <div className="name"> {item.name} </div>
             <div className="description"> {item.description} </div>
-            <div
-              className="button"
+            <Button
+              text={`Explore ${item.key}`}
               onClick={() =>
                 history.push({
                   pathname: ROUTE_PATH.PRODUCTS,
                   search: `?q=${item.id}`,
                 })
               }
-            >
-              Explore {item.key}
-            </div>
+            />
           </div>
         </div>
         <hr />
       </Fragment>
     ));
   return (
-    <div className="row">
+    <main className="row">
       <Crousel data={bannerData} /> <hr />
       <div className="categories"> {categoryList()} </div>
-    </div>
+    </main>
   );
 }

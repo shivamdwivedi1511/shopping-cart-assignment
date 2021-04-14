@@ -13,7 +13,7 @@ export default function Cart({ items }) {
     reduce(
       items,
       function (sum, n) {
-        return sum + (n.count*n.price);
+        return sum + n.count * n.price;
       },
       0
     );
@@ -55,7 +55,7 @@ export default function Cart({ items }) {
           <img
             src={close}
             alt="close"
-            onClick={() => dispatch(cartActions.hidecart)}
+            onClick={() => dispatch(cartActions.hidecart())}
           />
         </div>
         <div className="my-cart__container_content">
@@ -70,13 +70,18 @@ export default function Cart({ items }) {
         </div>
         <div className="my-cart__container_buy row">
           {isEmpty(items) ? (
-            <button className="btn" onClick={() => dispatch(cartActions.hidecart)}>Start Shopping</button>
+            <button
+              className="btn"
+              onClick={() => dispatch(cartActions.hidecart())}
+            >
+              Start Shopping
+            </button>
           ) : (
             <>
               <p className="promo">Promo code can be applied on payment page</p>
               <div
                 className="button checkout"
-                onClick={() => dispatch(cartActions.hidecart)}
+                onClick={() => dispatch(cartActions.hidecart())}
               >
                 <p>Proceed to checkout</p>
                 <div className="price">
