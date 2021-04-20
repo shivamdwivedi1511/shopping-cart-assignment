@@ -8,7 +8,7 @@
         position: inherit;
         width: 45%;
         height: 60%;
-        top: 10%;
+        top: 96px;
         background-color: white;
         right: 10%;
         display: flex;
@@ -83,7 +83,7 @@
                 margin: 5px;
             }
             .promo {
-                padding: 0 1em;
+                text-align: center;
             }
             button {
                 width: 100%;
@@ -92,7 +92,7 @@
             .checkout {
                 display: flex;
                 justify-content: space-between;
-                padding: 1em;
+                padding: 10px;
                 cursor: pointer;
                 .price {
                     display: flex;
@@ -109,7 +109,7 @@
     }
     @media only screen and (max-width: 991px) {
         background-color: #00000000;
-        top: 10%;
+        top: 96px;
         &__container {
             width: 100%;
             right: 0;
@@ -117,6 +117,17 @@
             top: 0;
             &_header {
                 display: none;
+            }
+            &_content {
+                flex: 0 0 77%;
+            }
+            &_buy {
+                .no-content {
+                    padding: 2% 4%;
+                }
+                .promo {
+                    margin-bottom: 10px;
+                }
             }
         }
     }

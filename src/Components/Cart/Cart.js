@@ -71,7 +71,7 @@ export default function Cart({ items }) {
         <div className="my-cart__container_buy row">
           {isEmpty(items) ? (
             <button
-              className="btn"
+              className="btn no-content"
               onClick={() => dispatch(cartActions.hidecart())}
             >
               Start Shopping

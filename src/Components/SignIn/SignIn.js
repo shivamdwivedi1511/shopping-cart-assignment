@@ -16,28 +16,33 @@ export default function SignIn() {
           <Input
             type="text"
             placeholder="First Name"
+            maxLength={50}
             required={true}
             name="firstname"
           />
           <Input
             type="text"
+            maxLength={50}
             placeholder="Last Name"
             required={true}
             name="lastname"
           />
           <Input
+            maxLength={50}
             type="email"
             placeholder="Email"
             required={true}
             name="email"
           />
           <Input
+            maxLength={20}
             type="password"
             placeholder="Password"
             required={true}
             name="password"
           />
           <Input
+            maxLength={20}
             type="password"
             placeholder="Confirm Password"
             required={true}
