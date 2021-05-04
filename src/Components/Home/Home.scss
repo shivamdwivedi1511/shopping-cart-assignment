@@ -16,6 +16,9 @@
     .rec-arrow-left:hover {
         opacity: 1;
     }
+    .rec:focus{
+        outline: 2px solid lime;
+    }
     .rec-pagination {
         margin-top: -20px;
         z-index: 9;

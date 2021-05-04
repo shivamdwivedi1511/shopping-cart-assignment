@@ -1,4 +1,4 @@
-nav {
+header {
     border-bottom: 1px solid #efebeb;
     box-shadow: 1px 1px 1px #efebeb;
 }
@@ -11,10 +11,22 @@ nav {
     img {
         height: 90px;
         padding: 5px 2px;
+        cursor: pointer;
     }
     @media only screen and (max-width: 991px) {
         width: 100%;
         padding: 0 10px;
+        img{
+            height: 78px;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+      &_logo{
+          img{
+            height: 65px;
+            margin: 10px;
+          }
+      }
     }
 }
 
@@ -35,7 +47,7 @@ nav {
         }
     }
     @media only screen and (max-width: 600px) {
-        opacity: 0;
+        display: none;
     }
 }
 
@@ -60,6 +72,7 @@ nav {
     }
     .cart_section {
         flex-grow: 1;
+        border: none;
         align-self: stretch;
         border-radius: 5px;
         background-color: #efebeb;

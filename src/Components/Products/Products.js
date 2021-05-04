@@ -26,7 +26,7 @@ export default function Products() {
   }, [products]);
 
   return (
-    <div className="product-section row">
+    <main className="product-section row">
       <ProductNav
         categories={categories}
         history={history}
@@ -39,6 +39,6 @@ export default function Products() {
         dispatch={dispatch}
         history={history}
       />
-    </div>
+    </main>
   );
 }

@@ -3,7 +3,7 @@ import logo from "../../../static/images/logo.png";
 import cart from "../../../static/images/cart.svg";
 import "./Header.scss";
 import { ROUTE_PATH } from "../../Utils/routesPaths";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import Cart from "../Cart";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/reducers/cartReducer";
@@ -15,15 +15,24 @@ export default function Header() {
     useSelector((state) => state.productReducer.products),
     "count"
   );
+  const history = useHistory();
   const location = useLocation();
   const dispatch = useDispatch();
 
   return (
-    <nav>
+    <header>
       {cartShow && <Cart items={cartStore} />}
-      <div className="header">
+      <nav className="header">
         <div className="header_logo">
-          <img src={logo} alt="logo" />
+          <img
+            src={logo}
+            alt="logo"
+            onClick={() =>
+              history.push({
+                pathname: ROUTE_PATH.HOME,
+              })
+            }
+          />
         </div>
         <div className="header_links">
           <ul>
@@ -74,20 +83,15 @@ export default function Header() {
               </li>
             </ul>
           </div>
-          <div className="cart_section">
-            <img
-              src={cart}
-              aria-label="cart"
-              role="button"
-              tabIndex="0"
-              alt="cart"
-              id="cart_logo"
-              onClick={() => dispatch(cartActions.toggleCart(!cartShow))}
-            />
+          <button
+            className="cart_section"
+            onClick={() => dispatch(cartActions.toggleCart(!cartShow))}
+          >
+            <img src={cart} aria-label="cart" alt="cart" id="cart_logo" />
             <span className="cart_detail"> {cartStore.length} items </span>
-          </div>
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }

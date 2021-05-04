@@ -146,7 +146,8 @@ $black-color: black;
                     height: 4.65rem;
                 }
                 &--image {
-                    width: 45%;
+                    width: auto;
+                    margin: auto;
                     height: 100%;
                 }
             }
@@ -166,3 +167,12 @@ $black-color: black;
     padding: 10px;
     margin-bottom: 10px;
 }
+
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    }

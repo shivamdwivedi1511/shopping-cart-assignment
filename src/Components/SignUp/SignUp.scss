@@ -1,42 +1,52 @@
 .auth-container {
-    margin: 1em;
-    padding: 1em;
-    display: flex;
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+
+  .auth-heading {
+    flex: 0 0 50%;
+    .text-block {
+      width: 80%;
+      padding: 1em;
+      margin: auto;
+      & > * {
+        margin: 10px 0;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+  .auth-form {
+    flex: 0 0 50%;
+    form {
+      display: flex;
+      flex-direction: column;
+      & > * {
+        margin-bottom: 1em;
+      }
+      input {
+        border: none;
+        border-bottom: 2px solid;
+        border-color: #ccc;
+        outline: none;
+        transition: border-color 0.4s ease-in-out;
+      }
+      input:focus {
+        border-color: rgb(0, 195, 255);
+      }
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    padding: 40px !important;
+  }
+  @media only screen and (max-width: 600px) {
+    padding: 40px 10px !important;
     .auth-heading {
-        flex: 0 0 50%;
-        .text-block {
-            width: 80%;
-            padding: 1em;
-            margin: auto;
-            &>* {
-                margin: 10px 0;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            p {
-                font-size: 14px;
-            }
-        }
+      flex: 0 0 40%;
     }
-    .auth-form {
-        flex: 0 0 50%;
-        form {
-            display: flex;
-            flex-direction: column;
-            &>* {
-                margin-bottom: 1em;
-            }
-            input {
-                border: none;
-                border-bottom: 2px solid;
-                border-color: #ccc;
-                outline: none;
-                transition: border-color 0.4s ease-in-out;
-            }
-            input:focus {
-                border-color: rgb(0, 195, 255);
-            }
-        }
-    }
+  }
 }

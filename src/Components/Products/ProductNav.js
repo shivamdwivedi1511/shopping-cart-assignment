@@ -5,7 +5,7 @@ export default function ProductNav({ categories, history, seacrhStr }) {
   const list = () =>
     categories.map((i) => (
       <button
-        className={`nav-item ${seacrhStr===i.id && 'active'}`}
+        className={`nav-item ${seacrhStr === i.id && "active"}`}
         key={i.id}
         onClick={() =>
           history.push({
@@ -17,5 +17,10 @@ export default function ProductNav({ categories, history, seacrhStr }) {
         {i.name}
       </button>
     ));
-  return <div className="side-nav"> {list()} </div>;
+  return (
+    <aside className="side-nav">
+      {" "}
+      <h2 class="sr-only">product filter</h2> {list()}{" "}
+    </aside>
+  );
 }

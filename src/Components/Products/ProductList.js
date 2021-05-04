@@ -1,13 +1,15 @@
 import React from "react";
+import Image from "../../Common/Image/Image";
 import { productActions } from "../../store/reducers/productReducer";
 import { ROUTE_PATH } from "../../Utils/routesPaths";
+import placeholder from "../../../static/images/placeholder.png";
 
 export default function ProductList({
   products,
   categories,
   seacrhStr,
   dispatch,
-  history
+  history,
 }) {
   const list = () =>
     products.map((product) => (
@@ -17,13 +19,15 @@ export default function ProductList({
         }`}
         key={product.id}
       >
-        <h1 className="product-list__item--title">{product.name}</h1>
+        <h2 className="product-list__item--title">{product.name}</h2>
         <div className="product-list__item-description">
-          <img
+          <Image
             className="product-list__item--image"
-            src={product.imageURL}
             alt={`image of ${product.name}`}
+            src={product.imageURL}
+            placeholderImg={placeholder}
           />
+         
           <div className="product-list__item--info">{product.description}</div>
           <button
             type="button"
@@ -44,13 +48,17 @@ export default function ProductList({
             className="btn product-list__item--action-buy"
             onClick={() => dispatch(productActions.addToCart(product.id))}
           >
-            Buy Now
+            Buy Now{" "}
+            <span class="sr-only">
+              {`${product.name} at Rs.${product.price}`}{" "}
+            </span>
           </button>
         </div>
       </div>
     ));
   return (
     <>
+      <h2 class="sr-only">product catalogue</h2>
       <select
         className="m-select-nav"
         value={seacrhStr}

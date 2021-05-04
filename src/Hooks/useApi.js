@@ -1,5 +1,5 @@
 const { useState, useEffect } = require("react");
-import axios from '../utils/axiosConfig'
+import axios from '../Utils/axiosConfig'
 const useApi = (path) => {
     const [data, setData] = useState([]);
     useEffect(() => {
