@@ -1,134 +1,163 @@
 .my-cart {
-    background-color: #0000008c;
-    position: absolute;
-    z-index: 777;
-    width: 100vw;
-    height: 100vh;
-    &__container {
-        position: inherit;
-        width: 45%;
-        height: 60%;
-        top: 96px;
-        background-color: white;
-        right: 10%;
+  background-color: #0000008c;
+  position: absolute;
+  z-index: 777;
+  width: 100vw;
+  height: 100vh;
+  &__container {
+    position: inherit;
+    width: 45%;
+    height: 60%;
+    top: 96px;
+    background-color: white;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    &_header {
+      flex: 0 0 8%;
+      padding: 1em;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      span {
+        color: white;
+      }
+      img {
+        cursor: pointer;
+      }
+    }
+    &_content {
+      flex: 0 0 65%;
+      overflow: scroll;
+      background-color: #eee;
+      .empty_cart {
+        height: 100%;
         display: flex;
         flex-direction: column;
-        &_header {
-            flex: 0 0 8%;
-            padding: 1em;
-            background-color: black;
-            color: white;
+        justify-content: center;
+        align-items: center;
+      }
+      .item {
+        background-color: white;
+        margin: 10px 0;
+        display: flex;
+        padding: 0 1em;
+        .logo {
+          height: 100px;
+        }
+        &__info {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          h2 {
+            font-size: 18px;
+          }
+          .count {
             display: flex;
             justify-content: space-between;
-            img {
+            align-items: center;
+            & > * {
+              font-size: 18px;
+            }
+            &_button {
+              flex: 0 0 60%;
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              button {
+                border-radius: 5px;
+                flex: 0 0 13%;
                 cursor: pointer;
+              }
+              span {
+                margin: 1em 0;
+                padding: 0 10px;
+              }
             }
+          }
         }
-        &_content {
-            flex: 0 0 65%;
-            overflow: scroll;
-            background-color: #eee;
-            .empty_cart {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+        @media only screen and (max-width: 600px) {
+          align-items: center;
+          &__info {
+            padding: 10px;
+            h2 {
+              font-size: 14px;
             }
-            .item {
-                background-color: white;
-                margin: 10px 0;
-                display: flex;
-                padding: 0 1em;
-                .logo {
-                    height: 100px;
-                }
-                &__info {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-around;
-                    flex-direction: column;
-                    h1 {
-                        font-size: 18px;
-                    }
-                    .count {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        &>* {
-                            font-size: 18px;
-                        }
-                        &_button {
-                            flex: 0 0 60%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-around;
-                            button {
-                                border-radius: 5px;
-                                flex: 0 0 13%;
-                                cursor: pointer;
-                            }
-                            span {
-                                margin: 1em 0;
-                                padding: 0 10px;
-                            }
-                        }
+            .count {
+                & > * {
+                    font-size: 16px;
+                  }
+                &_button {
+                    flex: 0 0 70%;
+                    button{
+                        flex: 0 0 20%;
                     }
                 }
             }
+          }
         }
-        &_buy {
-            // flex: 0 0 10%;
-            &>* {
-                margin: 5px;
-            }
-            .promo {
-                text-align: center;
-            }
-            button {
-                width: 100%;
-                padding: 4%;
-            }
-            .checkout {
-                display: flex;
-                justify-content: space-between;
-                padding: 10px;
-                cursor: pointer;
-                .price {
-                    display: flex;
-                    flex: 0 0 25%;
-                    justify-content: space-around;
-                    align-items: center;
-                    img {
-                        height: 14px;
-                        color: white;
-                    }
-                }
-            }
-        }
+      }
     }
-    @media only screen and (max-width: 991px) {
-        background-color: #00000000;
-        top: 96px;
-        &__container {
-            width: 100%;
-            right: 0;
-            height: 90%;
-            top: 0;
-            &_header {
-                display: none;
-            }
-            &_content {
-                flex: 0 0 77%;
-            }
-            &_buy {
-                .no-content {
-                    padding: 2% 4%;
-                }
-                .promo {
-                    margin-bottom: 10px;
-                }
-            }
+    &_buy {
+      // flex: 0 0 10%;
+      & > * {
+        margin: 5px;
+      }
+      .promo {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+        padding: 4%;
+      }
+      .checkout {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        cursor: pointer;
+        & > * {
+          color: white;
         }
+        .price {
+          display: flex;
+          flex: 0 0 25%;
+          justify-content: space-around;
+          align-items: center;
+          & > * {
+            color: white;
+          }
+          img {
+            height: 14px;
+            color: white;
+          }
+        }
+      }
     }
+  }
+  @media only screen and (max-width: 991px) {
+    background-color: #00000000;
+    top: 84px;
+    &__container {
+      width: 100%;
+      right: 0;
+      height: 90%;
+      top: 0;
+      &_header {
+        display: none;
+      }
+      &_content {
+        flex: 0 0 77%;
+      }
+      &_buy {
+        .no-content {
+          padding: 2% 4%;
+        }
+        .promo {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
 }

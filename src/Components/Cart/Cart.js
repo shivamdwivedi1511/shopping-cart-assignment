@@ -22,7 +22,7 @@ export default function Cart({ items }) {
       <div className="item" key={i.id}>
         <img src={i.imageURL} alt="logo" className="logo" />
         <div className="item__info">
-          <h1>{i.name}</h1>
+          <h2>{i.name}</h2>
           <div className="count">
             <div className="count_button">
               <button
@@ -79,7 +79,7 @@ export default function Cart({ items }) {
           ) : (
             <>
               <p className="promo">Promo code can be applied on payment page</p>
-              <div
+              <button
                 className="button checkout"
                 onClick={() => dispatch(cartActions.hidecart())}
               >
@@ -88,7 +88,7 @@ export default function Cart({ items }) {
                   <p>Rs. {calculateTotal()}</p>
                   <img src={rightArrow} alt="arror" />
                 </div>
-              </div>
+              </button>
             </>
           )}
         </div>

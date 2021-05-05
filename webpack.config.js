@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const path = require("path");
 module.exports = {
     entry: "./src/index.js",
@@ -8,9 +10,22 @@ module.exports = {
         publicPath: '/'
     },
     plugins: [
+        new CopyPlugin({
+            patterns: [
+              { from: 'static/images/favicon.ico' },
+            ],
+          }),
+
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            // template: "./src/index.html",
+            template: `${__dirname}/src/index.html`,
+            appMountId: 'app',
+            filename: 'index.html',
         }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'static',
+            openAnalyzer: false,
+          }),
     ],
     resolve: {
         modules: [__dirname, "src", "node_modules"],
